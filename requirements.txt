@@ -1,5 +1,2 @@
 Flask
-flask
-request
-whois
-socket
+python-whois
