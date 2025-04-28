@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <div class="container mt-5">
+        <div class="card text-center">
+            <div class="card-header">
+                Domain Search Result
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ result.domain }}</h5>
+
+                {% if result.available %}
+                    <p class="card-text text-success">🎉 The domain is available for registration!</p>
+                {% else %}
+                    <p class="card-text text-danger">❌ Sorry, this domain is already registered.</p>
+
+                    {% if result.registrar %}
+                        <p><strong>Registrar:</strong> {{ result.registrar }}</p>
+                    {% endif %}
+                    {% if result.expiration_date %}
+                        <p><strong>Expires On:</strong> {{ result.expiration_date }}</p>
+                    {% endif %}
+                {% endif %}
+
+                <a href="/" class="btn btn-primary mt-4">Check Another Domain</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
